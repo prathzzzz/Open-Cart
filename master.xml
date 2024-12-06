@@ -6,7 +6,7 @@
         <parameter name="browser" value="Chrome"/>
         <classes>
             <!-- Add your classes here -->
-            <class name="testCases.TC001_AccountRegistrationTest"/>
+            <class name="testCases.TC001_RegistrationTest"/>
         </classes>
     </test>
 </suite>

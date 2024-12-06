@@ -10,7 +10,7 @@ import testBase.BaseClass;
  * Test class for Account Registration functionality
  * Verifies the complete user registration process
  */
-public class TC001_AccountRegistrationTest extends BaseClass {
+public class TC001_RegistrationTest extends BaseClass {
     /**
      * Test method to verify successful account registration
      * Steps:
