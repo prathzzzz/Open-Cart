@@ -3,7 +3,7 @@ package interfaces;
 /**
  * Interface defining actions available on Account Registration Page
  */
-public interface AccountRegistrationPage {
+public interface RegistrationPage {
     void setFirstName(String firstName);
     void setLastName(String lastName);
     void setEmail(String email);

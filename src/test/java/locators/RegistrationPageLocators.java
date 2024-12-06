@@ -4,7 +4,7 @@ package locators;
  * Contains all locators and locator patterns for Account Registration Page
  * Organized by form sections
  */
-public class AccountRegistrationPageLocators {
+public class RegistrationPageLocators {
     // Personal Details section locators
     public static class PersonalDetails {
         public static final String FIRST_NAME_INPUT = "//input[@id='input-firstname']";
@@ -22,7 +22,6 @@ public class AccountRegistrationPageLocators {
     // Agreement section locators
     public static class Agreement {
         public static final String AGREE_CHECKBOX = "//input[@name='agree']";
-        public static final String PRIVACY_POLICY_LINK = "//a[@class='agree']";
     }
 
     // Form submission locators

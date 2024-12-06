@@ -3,9 +3,9 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import locators.AccountRegistrationPageLocators.*;  // Import inner classes
+import locators.RegistrationPageLocators.*;  // Import inner classes
 
-public class AccountRegistrationPage extends BasePage implements interfaces.AccountRegistrationPage {
+public class RegistrationPage extends BasePage implements interfaces.RegistrationPage {
     
     // Class-level variable to store the password
     private String enteredPassword;
@@ -39,7 +39,7 @@ public class AccountRegistrationPage extends BasePage implements interfaces.Acco
     @FindBy(xpath = Submit.SUCCESS_MESSAGE)
     private WebElement lblAccountCreatedMessage;
 
-    public AccountRegistrationPage(WebDriver driver) {
+    public RegistrationPage(WebDriver driver) {
         super(driver);
     }
 

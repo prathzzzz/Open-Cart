@@ -2,7 +2,7 @@ package testCases;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pageObjects.AccountRegistrationPage;
+import pageObjects.RegistrationPage;
 import pageObjects.HomePage;
 import testBase.BaseClass;
 
@@ -32,7 +32,7 @@ public class TC001_AccountRegistrationTest extends BaseClass {
 
             // Fill registration form with random data
             logger.info("Providing Customer Details");
-            AccountRegistrationPage accountRegistrationPage = new AccountRegistrationPage(driver);
+            RegistrationPage accountRegistrationPage = new RegistrationPage(driver);
             accountRegistrationPage.setFirstName(generateRandomString());
             accountRegistrationPage.setLastName(generateRandomString());
             accountRegistrationPage.setEmail(generateRandomString() + "@gmail.com");
@@ -47,7 +47,7 @@ public class TC001_AccountRegistrationTest extends BaseClass {
             accountRegistrationPage.clickContinueButton();
 
             // Verify successful registration
-            String successfulRegistrationMessage = AccountRegistrationPage.SUCCESSFUL_REGISTRATION_MESSAGE;
+            String successfulRegistrationMessage = RegistrationPage.SUCCESSFUL_REGISTRATION_MESSAGE;
             logger.info("Validating Expected Message");
             String actualMessage = accountRegistrationPage.getAccountCreatedMessage();
             logger.info("Actual message: " + actualMessage);
