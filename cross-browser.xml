@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite parallel="tests" thread-count="5" name="Default Suite">
+    <test name="Chrome Test">
+        <parameter name="os" value="Windows"/>
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <!-- Add your classes here -->
+            <class name="testCases.TC001_AccountRegistrationTest"/>
+        </classes>
+    </test>
+    <test name="Edge Test">
+        <parameter name="os" value="Windows"/>
+        <parameter name="browser" value="Edge"/>
+        <classes>
+            <!-- Add your classes here -->
+            <class name="testCases.TC001_AccountRegistrationTest"/>
+        </classes>
+    </test>
+</suite>
