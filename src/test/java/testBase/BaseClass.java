@@ -5,12 +5,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.time.Duration;
@@ -24,21 +25,39 @@ public abstract class BaseClass {
     protected WebDriver driver;
     public Logger logger;
     public Properties properties;
+    protected ChromeOptions chromeOptions;
+    protected EdgeOptions edgeOptions;
+
     /**
      * Setup method to initialize browser before each test class
      */
     @BeforeClass
-    @Parameters({"os","browser"})
-    public void setup(String os, String browser) throws IOException {
+    @Parameters({"os", "browser", "headless"})
+    public void setup(String os, String browser, String headless) throws IOException {
         FileReader fileReader = new FileReader("./src//test//resources//config.properties");
         properties = new Properties();
         properties.load(fileReader);
         logger = LogManager.getLogger(this.getClass());
         switch (browser.toLowerCase()) {
-            case "chrome" : driver = new ChromeDriver(); break;
-            case "edge" : driver = new EdgeDriver(); break;
-            default :
-                System.out.println("Invalid browser name"); return;
+            case "chrome":
+                chromeOptions = new ChromeOptions();
+                if (headless.equalsIgnoreCase("headless")) {
+                    chromeOptions.addArguments("--headless");
+                }
+                driver = new ChromeDriver(chromeOptions);
+                break;
+
+            case "edge":
+                edgeOptions = new EdgeOptions();
+                if (headless.equalsIgnoreCase("headless")) {
+                    edgeOptions.addArguments("--headless");
+                }
+                driver = new EdgeDriver(edgeOptions);
+                break;
+
+            default:
+                System.out.println("Invalid browser name");
+                return;
         }
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
@@ -56,6 +75,7 @@ public abstract class BaseClass {
 
     /**
      * Generates a random alphabetic string
+     *
      * @return String random 5-character string
      */
     public String generateRandomString() {
@@ -64,6 +84,7 @@ public abstract class BaseClass {
 
     /**
      * Generates a random numeric string
+     *
      * @return String random 10-digit number
      */
     public String generateRandomNumber() {
