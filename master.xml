@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Default Suite">
+    <listeners>
+        <listener class-name="utilities.ExtentReportManager"/>
+    </listeners>
     <test name="Auth Test">
+
         <parameter name="os" value="Windows"/>
         <parameter name="browser" value="Chrome"/>
-        <parameter name="headless" value=""/>
+        <parameter name="headless" value="headless"/>
         <classes>
             <!-- Add your classes here -->
-<!--            <class name="testCases.TC001_RegistrationTest"/>-->
-<!--            <class name="testCases.TC002_LoginTest"/>-->
+            <class name="testCases.TC001_RegistrationTest"/>
+            <class name="testCases.TC002_LoginTest"/>
             <class name="testCases.TC003_LoginDataDrivenTest"/>
         </classes>
     </test>
