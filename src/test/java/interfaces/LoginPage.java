@@ -5,4 +5,6 @@ public interface LoginPage {
     void setTxtEmail(String email);
     void setTxtPassword(String password);
     void clickLoginBtn();
+    String getIncorrectCredentialMessage();
+
 }

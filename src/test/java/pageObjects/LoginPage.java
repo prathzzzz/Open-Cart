@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-
 public class LoginPage extends BasePage implements interfaces.LoginPage {
     @FindBy(xpath = TopMenu.LOGIN_LINK)
     private WebElement lnkLogin;
@@ -15,6 +14,8 @@ public class LoginPage extends BasePage implements interfaces.LoginPage {
     private WebElement txtPassword;
     @FindBy(xpath = LoginForm.LOGIN_BUTTON)
     private WebElement btnLogin;
+    @FindBy(xpath = LoginForm.INCORRECT_CREDENTIALS)
+    private WebElement lblIncorrectCredentials;
 
     /**
      * Constructor to initialize WebDriver and wait objects
@@ -45,6 +46,10 @@ public class LoginPage extends BasePage implements interfaces.LoginPage {
         clickElement(btnLogin);
     }
 
+    @Override
+    public String getIncorrectCredentialMessage() {
+        return getElementText(lblIncorrectCredentials);
+    }
 //    public String verifyLogin() {
 //        return getElementText(txtVerifyLogin);
 //    }
