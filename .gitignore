@@ -39,3 +39,5 @@ build/
 .DS_Store
 
 ./logs/
+/logs/automation.log
+/logs/automation-12-06-2024-1.log.gz
